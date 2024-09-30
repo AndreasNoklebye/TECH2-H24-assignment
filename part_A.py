@@ -21,12 +21,13 @@ def std_loops(x):
     """
     sum_x = 0
     sum_x_squared = 0
+    N = 0
 
     for i in x:
-        sum_x = sum_x + x[i-1]                                  # Computing sum of x
-        sum_x_squared = sum_x_squared + x[i-1]**2               # Computing sum of x squared
+        sum_x = sum_x + i                                       # Computing sum of x
+        sum_x_squared = sum_x_squared + i**2                    # Computing sum of x squared
 
-        N = (i-1) + 1                                           # Counting number of elements
+        N += + 1                                                # Counting number of elements
     
     mean = sum_x / N                                            # Computing the mean of x
     S = sum_x_squared / N                                       # Computing the mean of x squared 
@@ -62,9 +63,9 @@ def std_builtin(x):
     return sd
 
 def main():
-    x = [1, 2, 3, 4, 5]                                         # List of numbers 
+    x = [1.1, 2.6, 3, 4, 5]                                     # List of numbers 
 
-    loop_sd = std_loops(x)
+    loop_sd = std_loops((x))
     builtin_sd = std_builtin(x)
     numPy_sd = np.std(x)
 
@@ -72,8 +73,6 @@ def main():
     print(f" The standard deviation calculated with a loop is: {loop_sd:.3f}")
     print(f" The standard deviation calculated with built in fuctions is {builtin_sd:.3f}")
     print(f" The standard deviation calculated with numPy's std() function is {numPy_sd:.3f}")
-
-
 
 if __name__ == "__main__":
     main()
