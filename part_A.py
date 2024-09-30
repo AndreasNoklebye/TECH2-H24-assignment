@@ -20,19 +20,19 @@ def std_loops(x):
         Standard deviation of the list of numbers.
     """
     sum_x = 0
-    sum_x_square = 0
+    sum_x_squared = 0
 
     for i in x:
-        sum_x = sum_x + x[i-1]
-        sum_x_square = sum_x_square + x[i-1]**2
-       
-        N = (i-1) + 1
+        sum_x = sum_x + x[i-1]                                  # Computing sum of x
+        sum_x_squared = sum_x_squared + x[i-1]**2               # Computing sum of x squared
+
+        N = (i-1) + 1                                           # Counting number of elements
     
-    mean = sum_x / N
-    mean_of_square = sum_x_square / N
+    mean = sum_x / N                                            # Computing the mean of x
+    S = sum_x_squared / N                                       # Computing the mean of x squared 
     
-    variance = mean_of_square - mean**2
-    sd = sqrt(variance)
+    var = S - mean**2                                           # Computing the variance (var)
+    sd = sqrt(var)                                              # Computing the standard deviation (sd)
     
     return sd
 
@@ -53,23 +53,25 @@ def std_builtin(x):
     sd : float
         Standard deviation of the list of numbers.
     """
-    mean = sum(x)/len(x)
-    mean_of_square = sum(np.array(x)**2)/len(x)
+    mean = sum(x)/len(x)                                        # Computing the mean of x, using sum() and len()
+    S = sum(np.array(x)**2)/len(x)                              # Computing the mean of x squared (S)
  
-    variance = mean_of_square - mean**2
-    sd = sqrt(variance)
-    
+    var = S - mean**2                                           # Computing the variance (var)
+    sd = sqrt(var)                                              # Computing the standard deviation (sd)
+
     return sd
 
 def main():
-    x = [1, 2, 3, 4, 5]
-    sd = std_loops(x)
-    sd2 = std_builtin(x)
+    x = [1, 2, 3, 4, 5]                                         # List of numbers 
+
+    loop_sd = std_loops(x)
+    builtin_sd = std_builtin(x)
+    numPy_sd = np.std(x)
 
 
-    print(sd)
-    print(sd2)
-    print(np.std(x))
+    print(f" The standard deviation calculated with a loop is: {loop_sd:.3f}")
+    print(f" The standard deviation calculated with built in fuctions is {builtin_sd:.3f}")
+    print(f" The standard deviation calculated with numPy's std() function is {numPy_sd:.3f}")
 
 
 
