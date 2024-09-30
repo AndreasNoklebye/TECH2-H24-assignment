@@ -27,8 +27,9 @@ def std_loops(x):
         sum_x_square = sum_x_square + x[i-1]**2
        
         N = (i-1) + 1
-        mean = sum_x / N
-        mean_of_square = sum_x_square / N
+    
+    mean = sum_x / N
+    mean_of_square = sum_x_square / N
     
     variance = mean_of_square - mean**2
     sd = sqrt(variance)
@@ -52,13 +53,25 @@ def std_builtin(x):
     sd : float
         Standard deviation of the list of numbers.
     """
+    mean = sum(x)/len(x)
+    mean_of_square = sum(np.array(x)**2)/len(x)
+ 
+    variance = mean_of_square - mean**2
+    sd = sqrt(variance)
+    
+    return sd
 
 def main():
     x = [1, 2, 3, 4, 5]
     sd = std_loops(x)
+    sd2 = std_builtin(x)
 
 
     print(sd)
+    print(sd2)
     print(np.std(x))
 
-main()
+
+
+if __name__ == "__main__":
+    main()
