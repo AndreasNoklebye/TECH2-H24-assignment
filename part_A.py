@@ -6,6 +6,7 @@ Write the implementation of part A of the exercise below.
 from math import sqrt
 import numpy as np
 
+
 def std_loops(x):
     """
     Compute standard deviation of x using loops.
@@ -26,7 +27,6 @@ def std_loops(x):
     for i in x:
         sum_x = sum_x + i                                       # Computing sum of x
         sum_x_squared = sum_x_squared + i**2                    # Computing sum of x squared
-
         N += 1                                                  # Counting number of elements
     
     mean = sum_x / N                                            # Computing the mean of x
@@ -36,8 +36,6 @@ def std_loops(x):
     sd = sqrt(var)                                              # Computing the standard deviation (sd)
     
     return sd
-
-
 
 
 def std_builtin(x):
@@ -54,13 +52,13 @@ def std_builtin(x):
     sd : float
         Standard deviation of the list of numbers.
     """
-    mean = sum(x)/len(x)                                        # Computing the mean of x, using sum() and len()
-    S = sum(np.array(x)**2)/len(x)                              # Computing the mean of x squared (S)
- 
+    mean = sum(x)/len(x)                                        # Computing the mean of x, using sum() and len()                  
+    S = sum(i**2 for i in x)/len(x)                             # Computing the mean of x squared (S)
     var = S - mean**2                                           # Computing the variance (var)
     sd = sqrt(var)                                              # Computing the standard deviation (sd)
 
     return sd
+
 
 def main():
     x = [1, 2, 3, 4, 5]                                         # List of numbers 
@@ -68,7 +66,6 @@ def main():
     loop_sd = std_loops((x))
     builtin_sd = std_builtin(x)
     numPy_sd = np.std(x)
-
 
     print(f" The standard deviation calculated with a loop is: {loop_sd:.3f}")
     print(f" The standard deviation calculated with built in fuctions is {builtin_sd:.3f}")
