@@ -27,7 +27,7 @@ def std_loops(x):
         sum_x = sum_x + i                                       # Computing sum of x
         sum_x_squared = sum_x_squared + i**2                    # Computing sum of x squared
 
-        N += + 1                                                # Counting number of elements
+        N += 1                                                  # Counting number of elements
     
     mean = sum_x / N                                            # Computing the mean of x
     S = sum_x_squared / N                                       # Computing the mean of x squared 
@@ -63,7 +63,7 @@ def std_builtin(x):
     return sd
 
 def main():
-    x = [1.1, 2.6, 3, 4, 5]                                     # List of numbers 
+    x = [1, 2, 3, 4, 5]                                         # List of numbers 
 
     loop_sd = std_loops((x))
     builtin_sd = std_builtin(x)
